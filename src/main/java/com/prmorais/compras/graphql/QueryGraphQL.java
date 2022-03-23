@@ -1,7 +1,9 @@
 package com.prmorais.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.prmorais.compras.repositories.ClienteRepository;
 import com.prmorais.compras.types.Client;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -9,6 +11,13 @@ import java.util.List;
 
 @Component
 public class QueryGraphQL implements GraphQLQueryResolver {
+
+  private final ClienteRepository repository;
+
+  public QueryGraphQL(ClienteRepository repository) {
+    this.repository = repository;
+  }
+
   public String hello() {
     return "Hello GraphQL";
   }
@@ -17,15 +26,11 @@ public class QueryGraphQL implements GraphQLQueryResolver {
     return a + b;
   }
 
-  public Client getClient() {
-    return new Client("Paulo", "prmorais1302@gmail.com");
+  public Client getClient(Long id) {
+    return repository.findById(id).orElse(null);
   }
 
   public List<Client> getClients() {
-    Client c = new Client("Paulo", "prmorais1302@gmail.com");
-    Client c1 = new Client("Patricia", "patricia11@gmail.com");
-    Client c2 = new Client("Fernanda", "nanda04@gmail.com");
-
-    return Arrays.asList(c, c1, c2);
+    return repository.findAll();
   }
 }
