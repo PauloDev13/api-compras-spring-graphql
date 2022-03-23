@@ -5,8 +5,8 @@ type Client {
 }
 
 input InputClient {
-    name: String!
-    email: String!
+    name: String
+    email: String
 }
 
 extend type Query {
@@ -15,5 +15,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    saveClient(client: InputClient): Client
+    saveClient(client: InputClient!): Client
+    updateClient(id: ID!, client: InputClient!): Client
+    deleteClient(id: ID): Boolean
 }

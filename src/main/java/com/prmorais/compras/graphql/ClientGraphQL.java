@@ -34,4 +34,24 @@ public class ClientGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     Client client = mapper.map(clientDto, Client.class);
     return repository.save(client);
   }
+
+  @Transactional
+  public Client updateClient(Long id, ClientDTO clientDto) {
+    if (repository.findById(id).isPresent()) {
+      ModelMapper mapper = new ModelMapper();
+      Client client = mapper.map(clientDto, Client.class);
+      client.setId(id);
+      return repository.save(client);
+    }
+    return null;
+  }
+
+  @Transactional
+  public Boolean deleteClient(Long id) {
+    if (repository.findById(id).isPresent()) {
+      repository.deleteById(id);
+      return true;
+    }
+    return false;
+  }
 }
