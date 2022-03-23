@@ -3,7 +3,7 @@ package com.prmorais.compras.graphql;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.prmorais.compras.dtos.ClientDTO;
-import com.prmorais.compras.repositories.ClienteRepository;
+import com.prmorais.compras.services.ClientService;
 import com.prmorais.compras.types.Client;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -14,44 +14,37 @@ import java.util.List;
 @Component
 public class ClientGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
-  private final ClienteRepository repository;
+  private final ClientService service;
 
-  public ClientGraphQL(ClienteRepository repository) {
-    this.repository = repository;
+  public ClientGraphQL(ClientService service) {
+    this.service = service;
   }
 
   public Client getClient(Long id) {
-    return repository.findById(id).orElse(null);
+    return service.findById(id);
   }
 
   public List<Client> getClients() {
-    return repository.findAll();
+    return service.findAll();
   }
 
   @Transactional
   public Client saveClient(ClientDTO clientDto) {
     ModelMapper mapper = new ModelMapper();
     Client client = mapper.map(clientDto, Client.class);
-    return repository.save(client);
+    return service.save(client);
   }
 
   @Transactional
   public Client updateClient(Long id, ClientDTO clientDto) {
-    if (repository.findById(id).isPresent()) {
-      ModelMapper mapper = new ModelMapper();
-      Client client = mapper.map(clientDto, Client.class);
-      client.setId(id);
-      return repository.save(client);
-    }
-    return null;
+    ModelMapper mapper = new ModelMapper();
+    Client client = mapper.map(clientDto, Client.class);
+    client.setId(id);
+    return service.update(id, client);
   }
 
   @Transactional
   public Boolean deleteClient(Long id) {
-    if (repository.findById(id).isPresent()) {
-      repository.deleteById(id);
-      return true;
-    }
-    return false;
+    return service.delete(id);
   }
 }
