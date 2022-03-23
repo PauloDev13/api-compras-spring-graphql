@@ -3,7 +3,17 @@ type Client {
     name: String
     email: String
 }
+
+input InputClient {
+    name: String!
+    email: String!
+}
+
 extend type Query {
     client(id: ID!): Client
     clients: [Client]
+}
+
+extend type Mutation {
+    saveClient(client: InputClient): Client
 }
