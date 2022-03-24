@@ -10,4 +10,5 @@ public class ProductResolver implements GraphQLResolver<Product> {
   public String priceInReal(Product product) {
     return "R$ " + product.getPrice().toString();
   }
+
 }
