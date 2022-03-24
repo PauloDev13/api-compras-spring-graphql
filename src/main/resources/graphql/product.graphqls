@@ -2,6 +2,7 @@ type Product {
   id: ID!
   name: String!
   price: Float!
+  priceInReal: String
 }
 
 input ProductInput {

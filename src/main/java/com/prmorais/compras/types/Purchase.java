@@ -21,11 +21,11 @@ public class Purchase {
   private String status;
   private Date date;
 
-  @ManyToOne(fetch = FetchType.EAGER)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "client_id", nullable = true)
   private Client client;
 
-  @ManyToOne(fetch = FetchType.EAGER)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product_id", nullable = true)
   private Product product;
 }
