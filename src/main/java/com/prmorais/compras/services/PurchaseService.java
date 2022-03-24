@@ -1,6 +1,7 @@
 package com.prmorais.compras.services;
 
 import com.prmorais.compras.repositories.PurchaseRepository;
+import com.prmorais.compras.types.Client;
 import com.prmorais.compras.types.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,9 @@ public class PurchaseService {
       return true;
     }
     return false;
+  }
+
+  public List<Purchase> findAllByClient(Client client) {
+    return repository.findAllByClient(client);
   }
 }
