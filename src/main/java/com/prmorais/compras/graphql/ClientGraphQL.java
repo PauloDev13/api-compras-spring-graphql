@@ -28,14 +28,12 @@ public class ClientGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     return service.findAll();
   }
 
-  @Transactional
   public Client saveClient(ClientDTO clientDto) {
     ModelMapper mapper = new ModelMapper();
     Client client = mapper.map(clientDto, Client.class);
     return service.save(client);
   }
 
-  @Transactional
   public Client updateClient(Long id, ClientDTO clientDto) {
     ModelMapper mapper = new ModelMapper();
     Client client = mapper.map(clientDto, Client.class);
@@ -43,7 +41,6 @@ public class ClientGraphQL implements GraphQLQueryResolver, GraphQLMutationResol
     return service.update(id, client);
   }
 
-  @Transactional
   public Boolean deleteClient(Long id) {
     return service.delete(id);
   }
