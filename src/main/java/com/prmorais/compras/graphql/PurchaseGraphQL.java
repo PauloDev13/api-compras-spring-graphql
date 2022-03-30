@@ -9,6 +9,7 @@ import com.prmorais.compras.services.PurchaseService;
 import com.prmorais.compras.types.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -25,8 +26,9 @@ public class PurchaseGraphQL implements GraphQLQueryResolver, GraphQLMutationRes
     return service.findById(id);
   }
 
-  public List<Purchase> purchases() {
-    return service.findAll();
+  public List<Purchase> purchases(int page, int size) {
+    PageRequest pageable = PageRequest.of(page, size);
+    return service.findAll(pageable);
   }
 
   public Purchase savePurchase(PurchaseDTO purchaseDto) {

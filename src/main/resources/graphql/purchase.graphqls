@@ -15,7 +15,7 @@ input PurchaseInput {
 
 extend type Query {
   purchase(id: ID!): Purchase
-  purchases: [Purchase]!
+  purchases(page: Int = 0, size: Int = 2): [Purchase]!
 }
 
 extend type Mutation {

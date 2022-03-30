@@ -4,6 +4,7 @@ import com.prmorais.compras.repositories.PurchaseRepository;
 import com.prmorais.compras.types.Client;
 import com.prmorais.compras.types.Purchase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,8 +19,8 @@ public class PurchaseService {
     return repository.findById(id).orElse(null);
   }
 
-  public List<Purchase> findAll() {
-    return repository.findAll();
+  public List<Purchase> findAll(PageRequest pageable) {
+    return repository.findAll(pageable).getContent();
   }
 
   @Transactional
