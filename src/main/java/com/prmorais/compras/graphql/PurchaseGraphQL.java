@@ -10,6 +10,7 @@ import com.prmorais.compras.types.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -27,7 +28,7 @@ public class PurchaseGraphQL implements GraphQLQueryResolver, GraphQLMutationRes
   }
 
   public List<Purchase> purchases(int page, int size) {
-    PageRequest pageable = PageRequest.of(page, size);
+    PageRequest pageable = PageRequest.of(page, size, Sort.by("quantity").descending());
     return service.findAll(pageable);
   }
 
