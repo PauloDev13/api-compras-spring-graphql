@@ -6,6 +6,7 @@ import com.prmorais.compras.dtos.ProductDTO;
 import com.prmorais.compras.services.ProductService;
 import com.prmorais.compras.models.Product;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,7 +15,6 @@ import java.util.List;
 public record ProductGraphQL(
     ProductService service
 ) implements GraphQLQueryResolver, GraphQLMutationResolver {
-
 
   public List<Product> products() {
     return service.findAll();
@@ -33,7 +33,9 @@ public record ProductGraphQL(
   public Product updateProduct(Long id, ProductDTO productDto) {
     ModelMapper model = new ModelMapper();
     Product product = model.map(productDto, Product.class);
+
     product.setId(id);
+
     return service.update(id, product);
   }
 

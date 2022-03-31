@@ -6,8 +6,8 @@ type Product {
 }
 
 input ProductInput {
-  name: String!
-  price: Float!
+  name: String
+  price: Float
 }
 
 extend type Query {
