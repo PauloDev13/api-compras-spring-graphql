@@ -1,4 +1,4 @@
-package com.prmorais.compras.types;
+package com.prmorais.compras.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

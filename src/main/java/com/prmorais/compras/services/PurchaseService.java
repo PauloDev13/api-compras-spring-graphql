@@ -1,8 +1,8 @@
 package com.prmorais.compras.services;
 
 import com.prmorais.compras.repositories.PurchaseRepository;
-import com.prmorais.compras.types.Client;
-import com.prmorais.compras.types.Purchase;
+import com.prmorais.compras.models.Client;
+import com.prmorais.compras.models.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

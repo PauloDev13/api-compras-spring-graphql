@@ -1,4 +1,4 @@
-package com.prmorais.compras.graphql;
+package com.prmorais.compras.graphql.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -6,7 +6,7 @@ import com.prmorais.compras.dtos.PurchaseDTO;
 import com.prmorais.compras.services.ClientService;
 import com.prmorais.compras.services.ProductService;
 import com.prmorais.compras.services.PurchaseService;
-import com.prmorais.compras.types.Purchase;
+import com.prmorais.compras.models.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;

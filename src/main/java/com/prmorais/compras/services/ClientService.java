@@ -1,7 +1,7 @@
 package com.prmorais.compras.services;
 
 import com.prmorais.compras.repositories.ClienteRepository;
-import com.prmorais.compras.types.Client;
+import com.prmorais.compras.models.Client;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

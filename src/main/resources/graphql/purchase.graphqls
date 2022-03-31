@@ -2,6 +2,7 @@ type Purchase {
   id: ID!
   quantity: Int!
   status: String!
+  date: Date!
   client: Client
   product: Product
 }

@@ -1,11 +1,11 @@
-package com.prmorais.compras.graphql.resolvers;
+package com.prmorais.compras.graphql.resolvers.fields;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.prmorais.compras.services.ClientService;
 import com.prmorais.compras.services.ProductService;
-import com.prmorais.compras.types.Client;
-import com.prmorais.compras.types.Product;
-import com.prmorais.compras.types.Purchase;
+import com.prmorais.compras.models.Client;
+import com.prmorais.compras.models.Product;
+import com.prmorais.compras.models.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

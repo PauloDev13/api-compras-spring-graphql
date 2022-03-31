@@ -1,4 +1,4 @@
-package com.prmorais.compras.graphql;
+package com.prmorais.compras.graphql.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;

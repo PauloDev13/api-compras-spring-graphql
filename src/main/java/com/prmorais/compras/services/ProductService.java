@@ -1,7 +1,7 @@
 package com.prmorais.compras.services;
 
 import com.prmorais.compras.repositories.ProductRepository;
-import com.prmorais.compras.types.Product;
+import com.prmorais.compras.models.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

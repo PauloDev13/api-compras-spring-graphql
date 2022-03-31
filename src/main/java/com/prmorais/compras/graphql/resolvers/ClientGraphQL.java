@@ -1,14 +1,13 @@
-package com.prmorais.compras.graphql;
+package com.prmorais.compras.graphql.resolvers;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.prmorais.compras.dtos.ClientDTO;
 import com.prmorais.compras.services.ClientService;
-import com.prmorais.compras.types.Client;
+import com.prmorais.compras.models.Client;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Component

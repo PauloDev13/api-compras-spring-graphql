@@ -1,6 +1,5 @@
-package com.prmorais.compras.types;
+package com.prmorais.compras.models;
 
-import com.prmorais.compras.dtos.ProductDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
