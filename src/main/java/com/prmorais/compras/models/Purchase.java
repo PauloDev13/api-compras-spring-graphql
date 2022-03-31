@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Cacheable
 public class Purchase {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
