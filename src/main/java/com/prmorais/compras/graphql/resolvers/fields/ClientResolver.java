@@ -1,9 +1,9 @@
 package com.prmorais.compras.graphql.resolvers.fields;
 
-import com.coxautodev.graphql.tools.GraphQLResolver;
+import com.prmorais.compras.models.Purchase;
 import com.prmorais.compras.services.PurchaseService;
 import com.prmorais.compras.models.Client;
-import com.prmorais.compras.models.Purchase;
+import graphql.kickstart.tools.GraphQLResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

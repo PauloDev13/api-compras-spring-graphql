@@ -1,9 +1,9 @@
 package com.prmorais.compras.services;
 
 import com.prmorais.compras.graphql.exception.DomainException;
+import com.prmorais.compras.models.Purchase;
 import com.prmorais.compras.repositories.PurchaseRepository;
 import com.prmorais.compras.models.Client;
-import com.prmorais.compras.models.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

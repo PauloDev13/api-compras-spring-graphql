@@ -2,7 +2,8 @@ type Purchase {
   id: ID!
   quantity: Int!
   status: String!
-  date: Date!
+  createdAt: String!
+#  createdAt: DateTime!
   client: Client
   product: Product
 }

@@ -1,12 +1,13 @@
 package com.prmorais.compras.graphql.resolvers;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+//import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+//import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.prmorais.compras.dtos.ProductDTO;
 import com.prmorais.compras.services.ProductService;
 import com.prmorais.compras.models.Product;
+import graphql.kickstart.tools.GraphQLMutationResolver;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

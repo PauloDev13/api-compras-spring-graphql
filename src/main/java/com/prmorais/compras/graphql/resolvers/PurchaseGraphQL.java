@@ -1,19 +1,21 @@
 package com.prmorais.compras.graphql.resolvers;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+//import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+//import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.prmorais.compras.dtos.PurchaseDTO;
+import com.prmorais.compras.models.Purchase;
 import com.prmorais.compras.services.ClientService;
 import com.prmorais.compras.services.ProductService;
 import com.prmorais.compras.services.PurchaseService;
-import com.prmorais.compras.models.Purchase;
+import graphql.kickstart.tools.GraphQLMutationResolver;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.*;
 import java.util.List;
 
 @Component
@@ -22,6 +24,7 @@ public class PurchaseGraphQL implements GraphQLQueryResolver, GraphQLMutationRes
   private final PurchaseService service;
   private final ClientService cliService;
   private final ProductService prodService;
+  private final Clock clock;
 
   public Purchase purchase(Long id) {
     return service.findById(id);
@@ -36,7 +39,7 @@ public class PurchaseGraphQL implements GraphQLQueryResolver, GraphQLMutationRes
     ModelMapper mapper = new ModelMapper();
 
     Purchase purchase = mapper.map(purchaseDto, Purchase.class);
-    purchase.setDate(new Date());
+    purchase.setCreatedAt(ZonedDateTime.now(clock));
     purchase.setClient(cliService.findById(purchaseDto.getClientId()));
     purchase.setProduct(prodService.findById(purchaseDto.getProductId()));
 

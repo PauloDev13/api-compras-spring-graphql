@@ -1,7 +1,7 @@
 package com.prmorais.compras.graphql.resolvers.fields;
 
-import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.prmorais.compras.models.Product;
+import graphql.kickstart.tools.GraphQLResolver;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package com.prmorais.compras.graphql.resolvers;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import graphql.kickstart.tools.GraphQLMutationResolver;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import com.prmorais.compras.dtos.ClientDTO;
 import com.prmorais.compras.services.ClientService;
 import com.prmorais.compras.models.Client;
@@ -14,7 +14,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class ClientGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
-
   private final ClientService service;
 
   public Client getClient(Long id) {
